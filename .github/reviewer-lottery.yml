@@ -1,9 +1,6 @@
-- name: Reviewer lottery
-  uses: uesteibar/reviewer-lottery@v2.0.0
-
 groups:
   - name: Devs
-    internal_reviewers: 4 # how many reviewers do you want to assign when the PR author belongs to this group?
+    internal_reviewers: 3 # how many reviewers do you want to assign when the PR author belongs to this group?
     usernames: # github usernames of the reviewers
       - dzmitry-homza
       - dmitriy-homza

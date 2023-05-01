@@ -4,7 +4,8 @@ on:
     types: [opened, ready_for_review, reopened]
 
 jobs:
-  test:
+  Reviewer-lottery:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
