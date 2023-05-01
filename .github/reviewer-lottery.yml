@@ -1,6 +1,3 @@
-- name: Reviewer lottery
-  uses: uesteibar/reviewer-lottery@v2.0.0
-
 groups:
   - name: Devs
     reviewers: 0 # how many reviewers do you want to assign?
