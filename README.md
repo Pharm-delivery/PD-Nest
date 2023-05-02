@@ -1,23 +1,18 @@
-# NestJS REST API boilerplate
-
-![github action status](https://github.com/brocoders/nestjs-boilerplate/actions/workflows/docker-e2e.yml/badge.svg)
+# PD_Nest
 
 ## Description
 
-NestJS REST API boilerplate for typical project
-
-[Full documentation here](https://github.com/brocoders/nestjs-boilerplate/blob/main/docs/readme.md)
+[Full documentation here](https://github.com/Pharm-delivery/PD-Nest/blob/main/docs/readme.md)
 
 ## Table of Contents
 
-- [NestJS REST API boilerplate](#nestjs-rest-api-boilerplate)
+- [PD\_Nest](#pd_nest)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Quick run](#quick-run)
   - [Comfortable development](#comfortable-development)
   - [Links](#links)
-  - [Automatic update of dependencies](#automatic-update-of-dependencies)
   - [Database utils](#database-utils)
   - [Tests](#tests)
   - [Tests in Docker](#tests-in-docker)
@@ -38,8 +33,6 @@ NestJS REST API boilerplate for typical project
 ## Quick run
 
 ```bash
-git clone --depth 1 https://github.com/brocoders/nestjs-boilerplate.git my-app
-cd my-app/
 cp .env.example .env
 docker compose up -d
 ```
@@ -83,10 +76,6 @@ npm run start:dev
 - Swagger: http://localhost:3000/docs
 - Adminer (client for DB): http://localhost:8080
 - Maildev: http://localhost:1080
-
-## Automatic update of dependencies
-
-If you want to automatically update dependencies, you can connect [Renovate](https://github.com/marketplace/renovate) for your project.
 
 ## Database utils
 
