@@ -42,7 +42,7 @@ export class AuthController {
   }
 
   @Post('phoneNumber/register')
-  @HttpCode(HttpStatus.NO_CONTENT)
+  @HttpCode(HttpStatus.OK)
   async register(
     @Body() createCustomerDto: AuthRegisterLoginDto,
   ): Promise<LoginSuccessfulResponseType> {
@@ -50,7 +50,7 @@ export class AuthController {
   }
 
   @Post('phoneNumber/confirm')
-  @HttpCode(HttpStatus.NO_CONTENT)
+  @HttpCode(HttpStatus.OK)
   async confirmPhoneNumber(
     @Body() confirmPhoneNumberDto: AuthConfirmPhoneNumberDto,
   ): Promise<LoginSuccessfulResponseType> {
@@ -65,6 +65,6 @@ export class AuthController {
   @UseGuards(AuthGuard('jwt'))
   @HttpCode(HttpStatus.OK)
   public me(@Request() request): Promise<NullableType<Customer>> {
-    return this.service.me(request.customer);
+    return this.service.me(request);
   }
 }
