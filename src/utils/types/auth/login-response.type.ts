@@ -1,7 +1,7 @@
 import { Customer } from 'src/modules/customers/entities/customer.entity';
 
 export type LoginResponseType = Readonly<{
-  customer: Partial<Customer>;
+  message: string;
 }>;
 
 export type LoginSuccessfulResponseType = Readonly<{

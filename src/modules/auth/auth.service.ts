@@ -7,7 +7,7 @@ import { RoleEnum } from 'src/modules/roles/roles.enum';
 import { StatusEnum } from 'src/modules/statuses/statuses.enum';
 import { Status } from 'src/modules/statuses/entities/status.entity';
 import { Role } from 'src/modules/roles/entities/role.entity';
-import { AuthProvidersEnum } from './auth-providers.enum';
+// import { AuthProvidersEnum } from './auth-providers.enum';
 import { AuthRegisterLoginDto } from './dto/auth-register-login.dto';
 import { CustomersService } from 'src/modules/customers/customers.service';
 import { NullableType } from 'src/utils/types/nullable.type';
@@ -26,36 +26,36 @@ export class AuthService {
   async validateLogin(
     loginDto: AuthPhoneNumberLoginDto,
   ): Promise<LoginResponseType> {
-    const customer = await this.customerService.findOne({
+    await this.customerService.findOne({
       phoneNumber: loginDto.phoneNumber,
     });
 
-    if (!customer) {
-      throw new HttpException(
-        {
-          status: HttpStatus.UNPROCESSABLE_ENTITY,
-          errors: {
-            phoneNumber: 'notFound',
-          },
-        },
-        HttpStatus.UNPROCESSABLE_ENTITY,
-      );
-    }
+    // if (!customer) {
+    //   throw new HttpException(
+    //     {
+    //       status: HttpStatus.UNPROCESSABLE_ENTITY,
+    //       errors: {
+    //         phoneNumber: 'notFound',
+    //       },
+    //     },
+    //     HttpStatus.UNPROCESSABLE_ENTITY,
+    //   );
+    // }
 
-    if (customer.provider !== AuthProvidersEnum.phoneNumber) {
-      throw new HttpException(
-        {
-          status: HttpStatus.UNPROCESSABLE_ENTITY,
-          errors: {
-            phoneNumber: `needLoginViaProvider:${customer.provider}`,
-          },
-        },
-        HttpStatus.UNPROCESSABLE_ENTITY,
-      );
-    }
+    // if (customer.provider !== AuthProvidersEnum.phoneNumber) {
+    //   throw new HttpException(
+    //     {
+    //       status: HttpStatus.UNPROCESSABLE_ENTITY,
+    //       errors: {
+    //         phoneNumber: `needLoginViaProvider:${customer.provider}`,
+    //       },
+    //     },
+    //     HttpStatus.UNPROCESSABLE_ENTITY,
+    //   );
+    // }
 
     return {
-      customer: { firstName: customer.firstName, lastName: customer.lastName },
+      message: 'OTP sended',
     };
   }
 
