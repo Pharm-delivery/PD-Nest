@@ -7,11 +7,15 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 import { TypeOrmConfigService } from '../typeorm-config.service';
 import { RoleSeedModule } from './role/role-seed.module';
 import { StatusSeedModule } from './status/status-seed.module';
+import { SubCategorySeedModule } from './subCategory/subCategory.seed.module';
+// import { MedicationsSeedModule } from './medication/medication.seed.module';
 
 @Module({
   imports: [
     RoleSeedModule,
     StatusSeedModule,
+    SubCategorySeedModule,
+    // MedicationsSeedModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [databaseConfig, appConfig],
