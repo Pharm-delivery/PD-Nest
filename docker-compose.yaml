@@ -1,5 +1,6 @@
 services:
   postgres:
+    container_name: postgres
     image: postgres:15.2-alpine
     ports:
       - ${DATABASE_PORT}:5432
@@ -9,15 +10,21 @@ services:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
-  # Uncomment to use redis
-  # redis:
-  #   image: redis:7-alpine
-  #   ports:
-  #     - 6379:6379
+    networks:
+      net_backend:
 
   api:
+    container_name: api
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - ${APP_PORT}:${APP_PORT}
+    volumes:
+      - .:/opt/app
+    networks:
+      net_backend:
+
+networks:
+  net_backend:
+    driver: bridge
