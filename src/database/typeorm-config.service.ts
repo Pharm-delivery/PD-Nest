@@ -16,9 +16,6 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       username: this.configService.get('database.username', { infer: true }),
       password: this.configService.get('database.password', { infer: true }),
       database: this.configService.get('database.name', { infer: true }),
-      synchronize: this.configService.get('database.synchronize', {
-        infer: true,
-      }),
       dropSchema: false,
       keepConnectionAlive: true,
       logging:
