@@ -52,7 +52,7 @@ export const subCategories = [
   },
   { name: 'Против подагры', medications: [] },
   { name: 'Другие', medications: [] },
-  // { name: 'При заболеваниях сердца', medications: [] },
+  { name: 'При заболеваниях сердца', medications: [] },
   // { name: 'При высоком давлении', medications: [] },
   // { name: 'Диуретики', medications: [] },
   // { name: 'Периферические вазодилататоры', medications: [] },

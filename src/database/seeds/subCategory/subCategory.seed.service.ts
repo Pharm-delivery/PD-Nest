@@ -14,10 +14,12 @@ export class SubCategorySeedService {
   async run() {
     const count = await this.repository.count();
 
-    if (!count) {
-      await this.repository.save(
-        subCategories.map((subCategory) => this.repository.create(subCategory)),
-      );
+    if (count) {
+      await this.repository.delete({});
     }
+
+    await this.repository.save(
+      subCategories.map((subCategory) => this.repository.create(subCategory)),
+    );
   }
 }
