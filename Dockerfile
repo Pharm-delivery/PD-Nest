@@ -1,6 +1,5 @@
 FROM node:18.16.0-alpine
 WORKDIR /opt/app
+RUN npm i -g @nestjs/cli
 ADD . .
-RUN npm install
-RUN npm run build
 CMD ["npm", "run", "start:prod"]
