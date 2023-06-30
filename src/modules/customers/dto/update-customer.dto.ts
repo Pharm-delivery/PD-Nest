@@ -4,7 +4,12 @@ import { CreateCustomerDto } from './create-customer.dto';
 import { Transform } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
 import { Role } from 'src/modules/roles/entities/role.entity';
-import { IsEmail, IsOptional, MinLength, Validate } from 'class-validator';
+import {
+  IsOptional,
+  IsPhoneNumber,
+  MinLength,
+  Validate,
+} from 'class-validator';
 import { Status } from 'src/modules/statuses/entities/status.entity';
 import { IsNotExist } from 'src/utils/validators/is-not-exists.validator';
 import { IsExist } from 'src/utils/validators/is-exists.validator';
@@ -17,7 +22,7 @@ export class UpdateCustomerDto extends PartialType(CreateCustomerDto) {
   @Validate(IsNotExist, ['Customer'], {
     message: 'phoneNumberAlreadyExist',
   })
-  @IsEmail()
+  @IsPhoneNumber()
   phoneNumber?: string | null;
 
   @ApiProperty()

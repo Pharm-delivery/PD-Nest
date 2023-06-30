@@ -28,7 +28,7 @@ import { InfinityPaginationResultType } from 'src/utils/types/infinity-paginatio
 import { NullableType } from 'src/utils/types/nullable.type';
 
 @ApiBearerAuth()
-@Roles(RoleEnum.admin)
+@Roles(RoleEnum.customer)
 @UseGuards(AuthGuard('jwt'), RolesGuard)
 @ApiTags('Customers')
 @Controller({
@@ -79,7 +79,7 @@ export class CustomersController {
   }
 
   @SerializeOptions({
-    groups: ['admin'],
+    groups: ['admin, customer'],
   })
   @Patch(':id')
   @HttpCode(HttpStatus.OK)
