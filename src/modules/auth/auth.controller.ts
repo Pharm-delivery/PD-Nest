@@ -65,6 +65,6 @@ export class AuthController {
   @UseGuards(AuthGuard('jwt'))
   @HttpCode(HttpStatus.OK)
   public me(@Request() request): Promise<NullableType<Customer>> {
-    return this.service.me(request);
+    return this.service.me(request.user);
   }
 }
