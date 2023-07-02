@@ -11,8 +11,7 @@ import {
 import { Role } from 'src/modules/roles/entities/role.entity';
 import { Status } from 'src/modules/statuses/entities/status.entity';
 import { EntityHelper } from 'src/utils/entity-helper';
-import { AuthProvidersEnum } from 'src/modules/auth/auth-providers.enum';
-import { Exclude, Expose } from 'class-transformer';
+import { Exclude } from 'class-transformer';
 
 @Entity()
 export class Customer extends EntityHelper {
@@ -22,16 +21,11 @@ export class Customer extends EntityHelper {
   // For "string | null" we need to use String type.
   // More info: https://github.com/typeorm/typeorm/issues/2567
   @Column({ type: String, unique: true, nullable: true })
-  @Expose({ groups: ['me', 'admin'] })
   phoneNumber: string | null;
 
   @Column({ type: 'varchar', nullable: true })
   @Exclude({ toPlainOnly: true })
   otp: string | null;
-
-  @Column({ default: AuthProvidersEnum.phoneNumber })
-  @Expose({ groups: ['me', 'admin'] })
-  provider: string;
 
   @Index()
   @Column({ type: String, nullable: true })
