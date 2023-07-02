@@ -10,6 +10,7 @@ import { useContainer } from 'class-validator';
 import { AppModule } from './app.module';
 import validationOptions from './utils/validation-options';
 import { AllConfigType } from './config/config.type';
+import * as morgan from 'morgan';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
@@ -38,7 +39,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);
-
+  app.use(morgan('dev'));
   await app.listen(configService.getOrThrow('app.port', { infer: true }));
 }
 void bootstrap();
