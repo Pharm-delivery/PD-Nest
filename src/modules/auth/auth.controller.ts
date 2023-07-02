@@ -7,7 +7,6 @@ import {
   Request,
   Post,
   UseGuards,
-  SerializeOptions,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
