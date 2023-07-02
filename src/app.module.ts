@@ -10,6 +10,7 @@ import { TypeOrmConfigService } from './database/typeorm-config.service';
 import { HomeModule } from './modules/home/home.module';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { ProductsModule } from './modules/products/products.module';
+import { AddressesModule } from './modules/addresses/addresses.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { ProductsModule } from './modules/products/products.module';
     AuthModule,
     HomeModule,
     ProductsModule,
+    AddressesModule,
   ],
 })
 export class AppModule {}

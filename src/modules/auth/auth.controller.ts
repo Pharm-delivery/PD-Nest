@@ -30,9 +30,6 @@ import { NullableType } from 'src/utils/types/nullable.type';
 export class AuthController {
   constructor(private readonly service: AuthService) {}
 
-  @SerializeOptions({
-    groups: ['me'],
-  })
   @Post('phoneNumber/login')
   @HttpCode(HttpStatus.OK)
   public login(
@@ -58,9 +55,6 @@ export class AuthController {
   }
 
   @ApiBearerAuth()
-  @SerializeOptions({
-    groups: ['me'],
-  })
   @Get('me')
   @UseGuards(AuthGuard('jwt'))
   @HttpCode(HttpStatus.OK)
